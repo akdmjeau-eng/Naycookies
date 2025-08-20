@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NayCookies - Donde los deseos se convierten en sabores</title>
+    <meta name="description" content="NayCookies - Galletas artesanales venezolanas. Una gran variedad de sabores irresistibles hechos con amor y dedicación.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --nay-purple: hsl(325 27% 65%);
+            --nay-pink: hsl(331 50% 95%);
+            --nay-gold: hsl(45 76% 60%);
+            --nay-cream: hsl(32 50% 98%);
+            --nay-dark: hsl(209 29% 24%);
+        }
+        
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .text-nay-purple { color: var(--nay-purple); }
+        .text-nay-pink { color: var(--nay-pink); }
+        .text-nay-gold { color: var(--nay-gold); }
+        .text-nay-cream { color: var(--nay-cream); }
+        .text-nay-dark { color: var(--nay-dark); }
+        .bg-nay-purple { background-color: var(--nay-purple); }
+        .bg-nay-pink { background-color: var(--nay-pink); }
+        .bg-nay-gold { background-color: var(--nay-gold); }
+        .bg-nay-cream { background-color: var(--nay-cream); }
+        .bg-nay-dark { background-color: var(--nay-dark); }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--nay-pink), white, var(--nay-cream));
+        }
+        
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 50;
+            background-color: #22c55e;
+            padding: 16px;
+            border-radius: 50px;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            transition: all 0.3s ease;
+        }
+        
+        .floating-whatsapp:hover {
+            background-color: #16a34a;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-nay-cream font-poppins">
+    <!-- Navegación -->
+    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center cursor-pointer" onclick="scrollToSection('inicio')">
+                    <img src="./assets/IMG_5974_1755658532287-wcebJyxD.jpg" alt="NayCookies Logo" class="h-12 w-12 rounded-full object-cover">
+                    <span class="ml-3 text-xl font-playfair font-bold text-nay-purple">NayCookies</span>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <button onclick="scrollToSection('inicio')" class="text-nay-dark hover:text-nay-purple px-3 py-2 rounded-md text-sm font-medium transition-colors">Inicio</button>
+                        <button onclick="scrollToSection('inspiracion')" class="text-nay-dark hover:text-nay-purple px-3 py-2 rounded-md text-sm font-medium transition-colors">Nuestra Inspiración</button>
+                        <button onclick="scrollToSection('sabores')" class="text-nay-dark hover:text-nay-purple px-3 py-2 rounded-md text-sm font-medium transition-colors">Sabores</button>
+                        <button onclick="scrollToSection('galeria')" class="text-nay-dark hover:text-nay-purple px-3 py-2 rounded-md text-sm font-medium transition-colors">Galería</button>
+                        <button onclick="scrollToSection('contacto')" class="text-nay-dark hover:text-nay-purple px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-16 min-h-screen hero-gradient flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <div class="mb-8">
+                    <div class="inline-block p-4 bg-white rounded-full shadow-2xl mb-6">
+                        <img src="./assets/IMG_5974_1755658532287-wcebJyxD.jpg" alt="NayCookies Logo" class="w-32 h-32 rounded-full object-cover">
+                    </div>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-playfair font-bold text-nay-purple mb-6">
+                    Nay<span class="text-nay-gold">Cookies</span>
+                </h1>
+                <p class="text-xl md:text-2xl font-dancing text-nay-dark mb-8">
+                    Donde los deseos se convierten en sabores
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button onclick="scrollToSection('sabores')" class="bg-nay-purple hover:opacity-90 text-white px-8 py-3 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg">
+                        Ver Nuestros Sabores
+                    </button>
+                    <button onclick="openWhatsApp()" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.087z"/>
+                        </svg>
+                        Hacer Pedido
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspiración -->
+    <section id="inspiracion" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-nay-purple mb-4">Nuestra Inspiración</h2>
+                <div class="w-24 h-1 bg-nay-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <div class="relative">
+                        <img src="./assets/IMG_5973_1755658532287-DCMh4lx0.jpg" alt="Nay, fundadora de NayCookies" class="rounded-3xl shadow-2xl w-full object-cover">
+                        <div class="absolute -bottom-4 -right-4 bg-nay-purple text-white p-4 rounded-full">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 md:order-2 space-y-8">
+                    <div style="background-color: rgba(254, 242, 242, 0.3);" class="p-8 rounded-2xl">
+                        <h3 class="text-2xl font-playfair font-bold text-nay-purple mb-4 flex items-center gap-3">
+                            <svg class="text-nay-gold w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            Nuestra Misión
+                        </h3>
+                        <p class="text-nay-dark leading-relaxed">
+                            En NayCookies contamos con una gran variedad de sabores irresistibles. Mi misión es endulzar momentos especiales ofreciendo productos de calidad, hechos con amor y dedicación.
+                        </p>
+                    </div>
+                    
+                    <div style="background-color: rgba(191, 139, 185, 0.1);" class="p-8 rounded-2xl">
+                        <h3 class="text-2xl font-playfair font-bold text-nay-purple mb-4 flex items-center gap-3">
+                            <svg class="text-nay-gold w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Nuestra Visión
+                        </h3>
+                        <p class="text-nay-dark leading-relaxed">
+                            Tengo como visión llegar a cada rincón, llevando la dulzura y el sabor único de mis galletas a muchas personas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sabores -->
+    <section id="sabores" class="py-20" style="background: linear-gradient(135deg, var(--nay-cream), rgba(254, 242, 242, 0.2));">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-nay-purple mb-4">Nuestros Sabores</h2>
+                <p class="text-xl text-nay-dark mb-6">Una explosión de sabores irresistibles</p>
+                <div class="w-24 h-1 bg-nay-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">❤️</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Red Velvet</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-full mx-auto mb-4 flex items-center justify-center text-white">💎</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Choco Ferrero</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">🍪</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Lotus</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-gray-700 to-black rounded-full mx-auto mb-4 flex items-center justify-center text-white">⚫</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Oreo</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-red-400 rounded-full mx-auto mb-4 flex items-center justify-center text-white">🥥</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Fresa con Coco</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-yellow-400 rounded-full mx-auto mb-4 flex items-center justify-center text-white">🥭</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Tropical Mango</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">🌿</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Pistacho</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-700 rounded-full mx-auto mb-4 flex items-center justify-center text-white">🍯</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Dulce de Leche</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-300 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white">☁️</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Marshmallow</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white">🍋</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Pie de Limón</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-yellow-700 to-yellow-900 rounded-full mx-auto mb-4 flex items-center justify-center text-white">☕</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Nutella</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-600 to-green-800 rounded-full mx-auto mb-4 flex items-center justify-center text-white">☕</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Ovomaltina</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-700 to-red-900 rounded-full mx-auto mb-4 flex items-center justify-center text-white">🍬</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Nocilla</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-300 to-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white">🍑</div>
+                        <h3 class="font-playfair font-bold text-nay-purple text-sm md:text-base">Melocotón</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-nay-purple mb-4">Nuestra Galería</h2>
+                <p class="text-xl text-nay-dark mb-6">Deléitate con nuestras creaciones</p>
+                <div class="w-24 h-1 bg-nay-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                    <img src="./assets/IMG_5968_1755658532285-BqwHr9yF.jpg" alt="Galleta Rellena" class="w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-white font-playfair font-bold text-xl">Galleta Rellena</h3>
+                            <p class="text-white/90">Con delicioso relleno de mermelada</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                    <img src="./assets/IMG_5969_1755658532285-DDJJ3OXI.jpg" alt="Galleta con Crema" class="w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-white font-playfair font-bold text-xl">Galleta con Crema</h3>
+                            <p class="text-white/90">Suaves y cremosas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                    <img src="./assets/IMG_5970_1755658532286-CABPEf8D.jpg" alt="Cookies Artesanales" class="w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-white font-playfair font-bold text-xl">Cookies Artesanales</h3>
+                            <p class="text-white/90">Hechas con amor y dedicación</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                    <img src="./assets/IMG_5968_1755658532285-BqwHr9yF.jpg" alt="Sabores Únicos" class="w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-white font-playfair font-bold text-xl">Sabores Únicos</h3>
+                            <p class="text-white/90">Cada mordisco es una sorpresa</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                    <img src="./assets/IMG_5969_1755658532285-DDJJ3OXI.jpg" alt="Calidad Premium" class="w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-white font-playfair font-bold text-xl">Calidad Premium</h3>
+                            <p class="text-white/90">Ingredientes de primera calidad</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                    <img src="./assets/IMG_5970_1755658532286-CABPEf8D.jpg" alt="Perfectas para Compartir" class="w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-white font-playfair font-bold text-xl">Perfectas para Compartir</h3>
+                            <p class="text-white/90">Momentos dulces en familia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 bg-nay-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-white mb-4">Contáctanos</h2>
+                <p class="text-xl text-white/90 mb-6">¿Listo para endulzar tu día?</p>
+                <div class="w-24 h-1 bg-nay-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h3 class="text-3xl font-playfair font-bold text-white mb-6">¡Haz tu pedido ahora!</h3>
+                    <p class="text-white/90 text-lg mb-8 leading-relaxed">
+                        Estamos aquí para endulzar tus momentos especiales. Contáctanos y descubre el sabor único de NayCookies.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <button onclick="openWhatsApp()" class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg flex items-center gap-3 justify-center md:justify-start w-fit mx-auto md:mx-0">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.087z"/>
+                            </svg>
+                            <div class="text-left">
+                                <div class="font-bold">WhatsApp</div>
+                                <div class="text-sm opacity-90">Pedidos y consultas</div>
+                            </div>
+                        </button>
+                        
+                        <button onclick="openInstagram()" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg flex items-center gap-3 justify-center md:justify-start w-fit mx-auto md:mx-0">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            <div class="text-left">
+                                <div class="font-bold">@naycookies.ve</div>
+                                <div class="text-sm opacity-90">Síguenos en Instagram</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-3xl">
+                        <div class="mb-6">
+                            <svg class="text-nay-gold text-4xl mb-4 mx-auto w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                            </svg>
+                            <h4 class="text-2xl font-playfair font-bold text-white mb-2">Horarios de Atención</h4>
+                            <p class="text-white/90">Lunes a Domingo</p>
+                            <p class="text-white/90">9:00 AM - 8:00 PM</p>
+                        </div>
+                        
+                        <div>
+                            <svg class="text-nay-gold text-4xl mb-4 mx-auto w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <h4 class="text-2xl font-playfair font-bold text-white mb-2">Entregas</h4>
+                            <p class="text-white/90">Delivery disponible</p>
+                            <p class="text-white/90">Consulta cobertura por WhatsApp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-nay-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-playfair font-bold mb-2">NayCookies</h3>
+                    <p class="text-white/70 font-dancing text-lg">Donde los deseos se convierten en sabores</p>
+                </div>
+                
+                <div class="flex justify-center space-x-6 mb-6">
+                    <button onclick="openInstagram()" class="text-white/70 hover:text-nay-gold transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </button>
+                    <button onclick="openWhatsApp()" class="text-white/70 hover:text-nay-gold transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.087z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="border-t border-white/20 pt-6">
+                    <p class="text-white/50 text-sm">© 2024 NayCookies. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante WhatsApp -->
+    <div class="floating-whatsapp">
+        <button onclick="openWhatsApp()" class="text-white flex items-center gap-2">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.087z"/>
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function openWhatsApp() {
+            const phoneNumber = "34642306691";
+            const message = "¡Hola! Me gustaría hacer un pedido de NayCookies 🍪";
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function openInstagram() {
+            window.open('https://instagram.com/naycookies.ve', '_blank');
+        }
+    </script>
+</body>
+</html>
